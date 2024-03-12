@@ -10,17 +10,6 @@ import "slick-carousel/slick/slick-theme.css";
 /* import { data } from 'autoprefixer'; */
 
 function App(){
-
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed:1000,
-        autoplaySpeed: 30,
-        autoplay: true,
-        slideToShow: 3,
-        slidetoScroll: 1
-    }   
-
     return(
         <>
             <h1>Developers</h1>
@@ -64,39 +53,6 @@ function App(){
                     </tr>
                 </tbody>
             </table>
-
-            {/* Creación de carousel */}
-            <Developers/>
-            {/* Aca pondremos el carousel */}
-            <div className='w-2/4 mx-auto my-auto'>
-                {/* Slider */}
-                <div className="mt-1.25">
-                    {/* Desplegamos todas las configuraciones del objeto como un prop */}
-                    <Slider{...settings}>
-                        {/* Nos permitira toda la parte de iteración */}
-                        {data.map((d) => (
-                                <> {/* indent */}
-                                    {/* contenedor para cada slider (altura, color del texto, etc) */}
-                                    <div className="bg-green-100 h-[200px] text-black rounded flex flex-col items-center justify-center">
-                                        {/* Empezar a recorrer las imagenes */}
-                                        <img src={d.img} className='p-3 mt-8 mb-8 h-64 w-64 rounded-full' alt='imagenes-slider' />
-                                    </div> 
-                                    {/*Cargar el nombre del desarrollador/a */}
-                                    <div className='flex flex-col items-center justify-center'>
-                                        <p className='font-semibold'>{d.name}</p>
-                                        <p className='text-center'>{d.review}</p>
-                                        <button onClick={()=>window.open(d.youtube, '_blank')}><img width="40" height="40" src="https://img.icons8.com/3d-fluency/94/youtube-play.png" alt="youtube-play"/></button>
-                                    </div>
-                                </>
-                            )
-
-                        )}
-                        
-                        
-                    </Slider>
-
-                </div>
-            </div>
         </>
     )
 }
